@@ -1,4 +1,9 @@
+import java.util.List;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter @Setter
 public abstract class Conta implements IConta {
 	
 	private static final int AGENCIA_PADRAO = 1;
@@ -30,17 +35,10 @@ public abstract class Conta implements IConta {
 		this.sacar(valor);
 		contaDestino.depositar(valor);
 	}
-
-	public int getAgencia() {
-		return agencia;
-	}
-
-	public int getNumero() {
-		return numero;
-	}
-
-	public double getSaldo() {
-		return saldo;
+	
+	@Override
+	public void atualizar() {
+		System.out.println("Não existe atualização para conta " + this.numero);
 	}
 
 	protected void imprimirInfosComuns() {
